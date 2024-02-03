@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>satta List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logout-link {
+            margin-top: 10px;
+            align-self: flex-end;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h3>satta list</h3>
+    <hr>
+    <a th:href="@{/satta/showFormForAdd}"
+        class="btn btn-primary btn-sm mb-3">
+        Add Satta
+    </a>
+
+    <a th:href="@{/records/all}" class="btn btn-primary btn-sm mb-3">Add New Record</a>
+
+    <div class="logout-link">
+        <a th:href="@{/login/logout}">Logout</a>
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Name</th>
+                <th>Start Time</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="tempsatta : ${satta}">
+                <td th:text="${tempsatta.name}" />
+                <td th:text="${tempsatta.start_time}" />
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
